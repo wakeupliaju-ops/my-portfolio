@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kim Sunkyung | Marketing Leader</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700&display=swap');
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --coral:#FF6B6B;--peach:#FFB347;--mint:#4ECDC4;--lavender:#A29BFE;
+    --sky:#74B9FF;--dark:#2D3436;--gray:#636E72;--lightgray:#F8F9FA;--white:#fff;
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Noto Sans KR',sans-serif;color:var(--dark);background:var(--white);overflow-x:hidden;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:14px 32px;display:flex;justify-content:space-between;align-items:center;}
+  .nav-logo{font-weight:700;font-size:1.1rem;color:var(--dark);}
+  .nav-logo span{color:var(--coral);}
+  .nav-links{display:flex;gap:28px;list-style:none;}
+  .nav-links a{text-decoration:none;color:var(--gray);font-size:.85rem;font-weight:500;transition:color .2s;}
+  .nav-links a:hover{color:var(--coral);}
+
+  /* HERO */
+  .hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 60px;background:linear-gradient(135deg,#FFF9F5 0%,#F0FFFE 50%,#F5F0FF 100%);position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,107,107,.12),transparent 70%);}
+  .hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(78,205,196,.12),transparent 70%);}
+  .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;}
+  .hero-badge{display:inline-block;background:linear-gradient(135deg,var(--coral),var(--peach));color:#fff;font-size:.75rem;font-weight:700;padding:6px 14px;border-radius:20px;letter-spacing:.05em;margin-bottom:20px;}
+  .hero h1{font-size:3rem;font-weight:900;line-height:1.15;margin-bottom:10px;}
+  .hero h1 .en{font-family:'Inter',sans-serif;font-size:1.2rem;font-weight:400;color:var(--gray);display:block;margin-bottom:6px;letter-spacing:.1em;}
+  .hero-subtitle{font-size:1.05rem;color:var(--gray);line-height:1.8;margin:16px 0 28px;}
+  .hero-subtitle strong{color:var(--dark);font-weight:600;}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn-primary{background:linear-gradient(135deg,var(--coral),var(--peach));color:#fff;border:none;padding:14px 28px;border-radius:30px;font-size:.9rem;font-weight:700;cursor:pointer;text-decoration:none;transition:transform .2s,box-shadow .2s;}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,107,.35);}
+  .btn-outline{background:transparent;color:var(--dark);border:2px solid var(--dark);padding:12px 26px;border-radius:30px;font-size:.9rem;font-weight:600;cursor:pointer;text-decoration:none;transition:all .2s;}
+  .btn-outline:hover{background:var(--dark);color:#fff;}
+  .hero-visual{display:flex;flex-direction:column;gap:14px;}
+  .stat-card{background:#fff;border-radius:16px;padding:20px 24px;box-shadow:0 4px 20px rgba(0,0,0,.07);display:flex;align-items:center;gap:16px;transition:transform .2s;}
+  .stat-card:hover{transform:translateY(-3px);}
+  .stat-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+  .stat-num{font-size:1.6rem;font-weight:900;font-family:'Inter',sans-serif;line-height:1;}
+  .stat-label{font-size:.78rem;color:var(--gray);margin-top:2px;}
+
+  /* SECTION BASE */
+  section{padding:80px 5%;}
+  .section-inner{max-width:1100px;margin:0 auto;}
+  .section-tag{display:inline-block;background:var(--lightgray);color:var(--gray);font-size:.72rem;font-weight:700;padding:5px 12px;border-radius:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+  .section-title{font-size:2rem;font-weight:800;margin-bottom:8px;}
+  .section-desc{color:var(--gray);font-size:.95rem;line-height:1.7;margin-bottom:48px;}
+
+  /* SKILLS */
+  .skills{background:var(--lightgray);}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
+  .skill-chip{background:#fff;border-radius:14px;padding:18px 20px;display:flex;align-items:flex-start;gap:12px;box-shadow:0 2px 10px rgba(0,0,0,.05);transition:transform .2s,box-shadow .2s;}
+  .skill-chip:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1);}
+  .skill-icon{font-size:1.5rem;line-height:1;}
+  .skill-text{font-size:.82rem;font-weight:600;color:var(--dark);line-height:1.4;}
+
+  /* PROJECTS */
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;}
+  .proj-card{background:#fff;border-radius:20px;padding:28px;border:1.5px solid #eee;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+  .proj-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.1);}
+  .proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+  .proj-card.c1::before{background:linear-gradient(90deg,var(--coral),var(--peach));}
+  .proj-card.c2::before{background:linear-gradient(90deg,var(--mint),var(--sky));}
+  .proj-card.c3::before{background:linear-gradient(90deg,var(--lavender),#fd79a8);}
+  .proj-card.c4::before{background:linear-gradient(90deg,var(--peach),#fdcb6e);}
+  .proj-card.c5::before{background:linear-gradient(90deg,var(--sky),var(--lavender));}
+  .proj-year{font-size:.72rem;color:var(--gray);font-weight:600;margin-bottom:8px;letter-spacing:.06em;}
+  .proj-title{font-size:1.05rem;font-weight:800;margin-bottom:10px;line-height:1.35;}
+  .proj-desc{font-size:.82rem;color:var(--gray);line-height:1.7;margin-bottom:16px;}
+  .proj-results{display:flex;flex-wrap:wrap;gap:8px;}
+  .result-badge{background:var(--lightgray);border-radius:20px;padding:4px 10px;font-size:.72rem;font-weight:700;color:var(--dark);}
+
+  /* CAREER */
+  .career{background:var(--lightgray);}
+  .timeline{position:relative;padding-left:24px;}
+  .timeline::before{content:'';position:absolute;left:0;top:6px;bottom:0;width:2px;background:linear-gradient(to bottom,var(--coral),var(--mint));}
+  .tl-item{position:relative;margin-bottom:28px;}
+  .tl-dot{position:absolute;left:-31px;top:6px;width:14px;height:14px;border-radius:50%;background:#fff;border:2.5px solid var(--coral);}
+  .tl-current .tl-dot{background:var(--coral);border-color:var(--coral);}
+  .tl-year{font-size:.72rem;color:var(--gray);font-weight:700;margin-bottom:3px;font-family:'Inter',sans-serif;}
+  .tl-role{font-size:.92rem;font-weight:700;color:var(--dark);}
+  .tl-org{font-size:.8rem;color:var(--gray);margin-top:2px;}
+
+  /* CONTACT */
+  .contact{background:linear-gradient(135deg,var(--dark) 0%,#2d3436 100%);color:#fff;}
+  .contact .section-title{color:#fff;}
+  .contact .section-desc{color:rgba(255,255,255,.6);}
+  .contact-cards{display:flex;gap:16px;flex-wrap:wrap;}
+  .contact-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px 24px;display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;transition:background .2s,transform .2s;flex:1;min-width:220px;}
+  .contact-card:hover{background:rgba(255,255,255,.14);transform:translateY(-2px);}
+  .contact-icon{font-size:1.6rem;}
+  .contact-label{font-size:.72rem;color:rgba(255,255,255,.5);margin-bottom:3px;}
+  .contact-value{font-size:.9rem;font-weight:600;}
+
+  /* FOOTER */
+  footer{background:var(--dark);color:rgba(255,255,255,.35);text-align:center;padding:20px;font-size:.75rem;border-top:1px solid rgba(255,255,255,.06);}
+
+  @media(max-width:768px){
+    nav{padding:12px 20px;}
+    .nav-links{display:none;}
+    .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center;}
+    .hero h1{font-size:2.2rem;}
+    .hero-cta{justify-content:center;}
+    .hero-visual{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .section-title{font-size:1.6rem;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Kim <span>Sunkyung</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">소개</a></li>
+    <li><a href="#skills">역량</a></li>
+    <li><a href="#projects">프로젝트</a></li>
+    <li><a href="#career">경력</a></li>
+    <li><a href="#contact">연락</a></li>
+  </ul>
+  <a href="#contact" class="btn-primary" style="padding:10px 20px;font-size:.82rem;">Contact</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="about">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">✦ Platform Marketing Leader</div>
+      <h1>
+        <span class="en">Kim Sunkyung</span>
+        김선경
+      </h1>
+      <p class="hero-subtitle">
+        <strong>20년간 플랫폼 마케팅을 리딩</strong>해온 마케팅 전문가.<br>
+        브랜드·콘텐츠·프로모션·수익화를 통합 설계하고,<br>
+        멤버십·광고·라이브커머스 등 <strong>신규 수익 모델을 제로베이스에서 실매출로 연결</strong>한 경험 보유.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">주요 프로젝트 보기</a>
+        <a href="#contact" class="btn-outline">연락하기</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#FFF0F0;">🚀</div>
+        <div>
+          <div class="stat-num" style="color:var(--coral);">20+</div>
+          <div class="stat-label">년간 플랫폼 마케팅 경력</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#F0FFFD;">💰</div>
+        <div>
+          <div class="stat-num" style="color:var(--mint);">10억+</div>
+          <div class="stat-label">광고 신사업 1년 내 매출 달성</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#F5F0FF;">📺</div>
+        <div>
+          <div class="stat-num" style="color:var(--lavender);">3.5만</div>
+          <div class="stat-label">라이브 동시 접속자 기록</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:#FFF5E6;">🎬</div>
+        <div>
+          <div class="stat-num" style="color:var(--peach);">10만</div>
+          <div class="stat-label">유튜브 구독자 1년 내 성장</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="section-inner">
+    <span class="section-tag">Core Competencies</span>
+    <h2 class="section-title">핵심 역량</h2>
+    <p class="section-desc">플랫폼 비즈니스의 기획부터 실행까지, 데이터와 콘텐츠로 성장을 만듭니다.</p>
+    <div class="skills-grid">
+      <div class="skill-chip"><span class="skill-icon">💡</span><span class="skill-text">플랫폼 비즈니스 &<br>수익 모델 설계</span></div>
+      <div class="skill-chip"><span class="skill-icon">📣</span><span class="skill-text">광고 사업 전략 &<br>파트너 세일즈</span></div>
+      <div class="skill-chip"><span class="skill-icon">🎬</span><span class="skill-text">콘텐츠 IP 전략 &<br>미디어 사업화</span></div>
+      <div class="skill-chip"><span class="skill-icon">📊</span><span class="skill-text">데이터 기반<br>마케팅 기획</span></div>
+      <div class="skill-chip"><span class="skill-icon">🤝</span><span class="skill-text">크로스펑셔널<br>조직 리딩</span></div>
+      <div class="skill-chip"><span class="skill-icon">🏗️</span><span class="skill-text">제로베이스 사업 구축<br>End to End</span></div>
+      <div class="skill-chip"><span class="skill-icon">🛒</span><span class="skill-text">라이브커머스<br>전략 & 운영</span></div>
+      <div class="skill-chip"><span class="skill-icon">🤖</span><span class="skill-text">AI 기반 데이터 분석<br>& 기획 자동화</span></div>
+      <div class="skill-chip"><span class="skill-icon">🎟️</span><span class="skill-text">공연·엔터 산업<br>도메인 전문성</span></div>
+      <div class="skill-chip"><span class="skill-icon">💳</span><span class="skill-text">멤버십 설계 &<br>P&L 모델링</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <span class="section-tag">Selected Projects</span>
+    <h2 class="section-title">주요 프로젝트</h2>
+    <p class="section-desc">제로베이스에서 시작해 실제 매출과 성장으로 이어진 프로젝트들입니다.</p>
+    <div class="projects-grid">
+      <div class="proj-card c1">
+        <div class="proj-year">2025 – 진행중</div>
+        <div class="proj-title">통합 유료 멤버십 설계 총괄</div>
+        <div class="proj-desc">야놀자·인터파크투어·NOL티켓을 연결하는 통합 멤버십 구조 설계. P&L 모델링·구독료 책정·5개 조직 크로스펑셔널 리딩.</div>
+        <div class="proj-results">
+          <span class="result-badge">Databricks 분석</span>
+          <span class="result-badge">P&L 설계</span>
+          <span class="result-badge">26–27년 출시 예정</span>
+        </div>
+      </div>
+      <div class="proj-card c2">
+        <div class="proj-year">2024</div>
+        <div class="proj-title">인터파크티켓 광고 사업 신설</div>
+        <div class="proj-desc">팀 신설부터 광고 패키지 출시까지 전 과정 주도. 온사이트+DOOH+OOH 통합 상품 설계, 삼성역 K-POP 스퀘어 연간 계약.</div>
+        <div class="proj-results">
+          <span class="result-badge">1년 내 10억 달성</span>
+          <span class="result-badge">신규 광고주 107개사</span>
+          <span class="result-badge">월매출 ×3배 성장</span>
+        </div>
+      </div>
+      <div class="proj-card c3">
+        <div class="proj-year">2024</div>
+        <div class="proj-title">'인픽!요즘공연' 캠페인</div>
+        <div class="proj-desc">중소형 공연 큐레이션 기반 정기 프로모션. 월 20개 내외 공연 선정, SNS 바이럴 콘텐츠 기획 및 타임딜·쿠폰 부스팅.</div>
+        <div class="proj-results">
+          <span class="result-badge">판매량 평균 +150%</span>
+          <span class="result-badge">예매금액 +123%</span>
+          <span class="result-badge">카테고리 거래액 +30%</span>
+        </div>
+      </div>
+      <div class="proj-card c4">
+        <div class="proj-year">2023 – 2024</div>
+        <div class="proj-title">인터파크트리플 리브랜딩 캠페인</div>
+        <div class="proj-desc">합병 통합 브랜드 캠페인 실행 총괄. TV광고 기반 디지털 바이럴 전략 설계, SNS/채널별 크리에이티브 최적화.</div>
+        <div class="proj-results">
+          <span class="result-badge">총 조회수 500만</span>
+          <span class="result-badge">도달수 1,200만</span>
+          <span class="result-badge">CTR +45% 개선</span>
+        </div>
+      </div>
+      <div class="proj-card c5">
+        <div class="proj-year">2021 – 2023</div>
+        <div class="proj-title">라이브커머스 사업 구축</div>
+        <div class="proj-desc">전략 수립부터 스튜디오 인프라 구축, 15명 조직 세팅까지. 여행TV·수요아트살롱 등 콘텐츠 IP 포맷 설계.</div>
+        <div class="proj-results">
+          <span class="result-badge">방송편수 ×2.7배</span>
+          <span class="result-badge">최대 동접 1만명</span>
+          <span class="result-badge">연 매출 +50%↑</span>
+        </div>
+      </div>
+      <div class="proj-card c1">
+        <div class="proj-year">2020</div>
+        <div class="proj-title">'힘내라! 공연' 코로나 극복 캠페인</div>
+        <div class="proj-desc">코로나19로 침체된 공연 시장 활성화를 위해 주요 공연기획사·공연장과 협업, 유튜브 라이브 기획 및 실행.</div>
+        <div class="proj-results">
+          <span class="result-badge">동시접속 3.5만명</span>
+          <span class="result-badge">영상조회수 100만+</span>
+          <span class="result-badge">단일PDP DAU 2만</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section class="career" id="career">
+  <div class="section-inner">
+    <span class="section-tag">Career</span>
+    <h2 class="section-title">경력</h2>
+    <p class="section-desc">인터파크에서 시작해 플랫폼 마케팅의 모든 영역을 경험해왔습니다.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+      <div class="timeline">
+        <div class="tl-item tl-current">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2026.03 – 현재</div>
+          <div class="tl-role">멤버십기획팀 리더</div>
+          <div class="tl-org">놀유니버스</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2024.12</div>
+          <div class="tl-role">마젤란TF 프로젝트리더</div>
+          <div class="tl-org">놀유니버스</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2023.09</div>
+          <div class="tl-role">엔터브랜딩 Head</div>
+          <div class="tl-org">인터파크트리플</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2022.08</div>
+          <div class="tl-role">콘텐츠마케팅팀 Head</div>
+          <div class="tl-org">인터파크트리플</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2020.01</div>
+          <div class="tl-role">라이브커머스실 Head</div>
+          <div class="tl-org">인터파크</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2018.10</div>
+          <div class="tl-role">콘텐츠마케팅실 Head</div>
+          <div class="tl-org">인터파크</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2014.10</div>
+          <div class="tl-role">플레이디비팀 팀장</div>
+          <div class="tl-org">인터파크 티켓</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2011.11</div>
+          <div class="tl-role">홍보팀 팀장</div>
+          <div class="tl-org">인터파크씨어터</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2009.05</div>
+          <div class="tl-role">서비스기획팀 과장</div>
+          <div class="tl-org">인터파크 티켓</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2006.02</div>
+          <div class="tl-role">홍보팀 / 공연기획팀</div>
+          <div class="tl-org">인터파크</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2003.05</div>
+          <div class="tl-role">PR Agency 창업</div>
+          <div class="tl-org">PlanB PR Agency</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2001.01</div>
+          <div class="tl-role">AE</div>
+          <div class="tl-org">GA 커뮤니케이션즈</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education & Books -->
+    <div style="margin-top:48px;display:flex;gap:24px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:220px;background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.05);">
+        <div style="font-size:.72rem;font-weight:700;color:var(--gray);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;">🎓 Education</div>
+        <div style="font-size:.85rem;font-weight:600;margin-bottom:4px;">한국예술종합학교 예술경영 전문사</div>
+        <div style="font-size:.78rem;color:var(--gray);margin-bottom:12px;">2012년 수료</div>
+        <div style="font-size:.85rem;font-weight:600;margin-bottom:4px;">세종대학교 영문학 석사</div>
+        <div style="font-size:.78rem;color:var(--gray);">2001년 졸업</div>
+      </div>
+      <div style="flex:1;min-width:220px;background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.05);">
+        <div style="font-size:.72rem;font-weight:700;color:var(--gray);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;">📚 저서</div>
+        <div style="font-size:.85rem;font-weight:600;margin-bottom:4px;">공연홍보가이드북</div>
+        <div style="font-size:.78rem;color:var(--gray);margin-bottom:12px;">예술경영지원센터</div>
+        <div style="font-size:.85rem;font-weight:600;margin-bottom:4px;">대한민국공연음악산업백서</div>
+        <div style="font-size:.78rem;color:var(--gray);">한국콘텐츠진흥원</div>
+      </div>
+      <div style="flex:1;min-width:220px;background:#fff;border-radius:16px;padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.05);">
+        <div style="font-size:.72rem;font-weight:700;color:var(--gray);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;">🤖 AI 역량</div>
+        <div style="font-size:.82rem;color:var(--dark);line-height:1.7;">Databricks SQL 기반 마케팅 분석<br>Figma · Adobe Firefly · Google AI Studio<br>사내 AI 동아리 회장 (2023)<br>인터파크트리플 AI 해커톤 준비단</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <span class="section-tag" style="background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);">Contact</span>
+    <h2 class="section-title">함께 이야기해요</h2>
+    <p class="section-desc">새로운 기회나 협업 제안은 언제든지 환영합니다.</p>
+    <div class="contact-cards">
+      <a href="mailto:wakeupliaju@gmail.com" class="contact-card">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">wakeupliaju@gmail.com</div>
+        </div>
+      </a>
+      <a href="tel:01090602188" class="contact-card">
+        <span class="contact-icon">📱</span>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">010-9060-2188</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 Kim Sunkyung. All rights reserved.</footer>
+
+</body>
+</html>
