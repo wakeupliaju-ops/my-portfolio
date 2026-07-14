@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>네번의 창업 스토리 | Kim Sunkyung</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#f0ebe3;
+    --card:#faf7f2;
+    --orange:#e07b2a;
+    --dark:#2d2d2d;
+    --gray:#666;
+    --line:#d4c9bb;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--dark);font-family:'Pretendard',-apple-system,sans-serif;font-weight:300;line-height:1.85;}
+
+  /* NAV */
+  .site-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.06);padding:14px 32px;display:flex;justify-content:space-between;align-items:center;}
+  .nav-logo{font-weight:700;font-size:1.1rem;color:#2D3436;text-decoration:none;}
+  .nav-logo span{color:#FF6B6B;}
+  .site-nav-links{display:flex;gap:28px;list-style:none;}
+  .site-nav-links a{text-decoration:none;color:#636E72;font-size:.85rem;font-weight:500;transition:color .2s;}
+  .site-nav-links a:hover{color:#FF6B6B;}
+  .nav-btn{background:linear-gradient(135deg,#FF6B6B,#FFB347);color:#fff;border:none;padding:10px 20px;border-radius:30px;font-size:.82rem;font-weight:700;cursor:pointer;text-decoration:none;}
+  @media(max-width:768px){.site-nav{padding:12px 20px;}.site-nav-links{display:none;}}
+
+  /* PAGE */
+  .page{max-width:680px;margin:0 auto;padding:100px 24px 80px;}
+
+  /* TITLE */
+  .page-title{text-align:center;font-size:clamp(26px,5vw,38px);font-weight:800;letter-spacing:.04em;margin-bottom:16px;}
+  .dots{text-align:center;letter-spacing:.3em;color:var(--orange);font-size:12px;margin-bottom:56px;}
+
+  /* STORY ITEM */
+  .story{display:grid;gap:28px;margin-bottom:48px;}
+  .story-item{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:center;background:var(--card);border-radius:20px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.06);}
+  .story-item.reverse{direction:rtl;}
+  .story-item.reverse > *{direction:ltr;}
+
+  .story-illust{background:var(--bg);display:flex;align-items:center;justify-content:center;min-height:220px;position:relative;padding:32px 24px;}
+  .story-num{position:absolute;bottom:16px;left:20px;font-size:3.2rem;font-weight:900;color:var(--orange);line-height:1;font-family:'Pretendard',sans-serif;}
+  .story-item.reverse .story-num{left:auto;right:20px;}
+
+  .story-icon{font-size:4rem;opacity:.55;}
+
+  .story-text{padding:32px 28px;}
+  .story-title{font-size:1.05rem;font-weight:800;line-height:1.45;margin-bottom:14px;color:var(--dark);}
+  .story-desc{font-size:.85rem;color:var(--gray);line-height:1.85;}
+
+  @media(max-width:600px){
+    .story-item,.story-item.reverse{grid-template-columns:1fr;direction:ltr;}
+    .story-illust{min-height:140px;}
+    .story-num{font-size:2.4rem;}
+  }
+
+  footer{text-align:center;padding:32px 24px;font-size:.75rem;color:var(--gray);}
+  footer a{color:var(--orange);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">Kim <span>Sunkyung</span></a>
+  <ul class="site-nav-links">
+    <li><a href="index.html#about">소개</a></li>
+    <li><a href="index.html#skills">역량</a></li>
+    <li><a href="index.html#projects">프로젝트</a></li>
+    <li><a href="index.html#career">경력</a></li>
+    <li><a href="index.html#contact">연락</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-btn">Contact</a>
+</nav>
+
+<div class="page">
+  <h1 class="page-title">네번의 창업 스토리</h1>
+  <p class="dots">· · · · · · · · · · · · · · · · · · · · · · ·</p>
+
+  <div class="story">
+
+    <div class="story-item">
+      <div class="story-illust">
+        <span class="story-icon">👗</span>
+        <span class="story-num">01</span>
+      </div>
+      <div class="story-text">
+        <p class="story-title">첫 창업은 함께 회사를 다니던 디자이너 2명과 기획자인 나 세명이 만든 디자인 회사 '조은언니'.</p>
+        <p class="story-desc">그냥 단순하게 좋은 사람들이 만드는 좋은 제품, 이런 의미였습니다. 캐릭터 디자이너 두분이 만든 디자인으로 굿즈와 티셔츠를 제작했는데 유통단계까지 못하고 6개월 만에 폐업. 지금처럼 네이버 스마트스토어나 오픈마켓 등이 등장하지 않았던 시절이어서 유통에 어려움을 겪었어요.</p>
+      </div>
+    </div>
+
+    <div class="story-item reverse">
+      <div class="story-illust">
+        <span class="story-icon">📣</span>
+        <span class="story-num">02</span>
+      </div>
+      <div class="story-text">
+        <p class="story-title">두번째 창업은 PR 에이전시인 플랜B.</p>
+        <p class="story-desc">햇수로는 5년으로 꽤 오래 버텼답니다. 이전에 홍보에이전시 AE로 일한 경험을 기반으로 직접 에이전시를 차렸는데 운좋게 건실한 클라이언트들과 연간 계약을 하게 되어 안정적으로 운영할 수 있었어요. 그러다 고독에 몸부림치다가 다시 회사로 입사와 함께 폐업신고.</p>
+      </div>
+    </div>
+
+    <div class="story-item">
+      <div class="story-illust">
+        <span class="story-icon">🦬</span>
+        <span class="story-num">03</span>
+      </div>
+      <div class="story-text">
+        <p class="story-title">세번째 창업은 회사에서 심각한 번아웃을 겪고 탈출구를 만들기 위해 다시 창업한 주스테이블.</p>
+        <p class="story-desc">잘 되서 지속가능했으면 하는 바람을 담아 '(주)스테이블', 아이디어가 샘솟는 편안한 공간이라는 주스테이블이라는 중의적 의미로 전시기획을 하는 예술기업을 만들었어요. 버팔로 80이라는 전시를 기획하고 성황리에 끝냈습니다. 회사다니면서 주말에 일하려니 힘들고 돈은 안되어 중단.</p>
+      </div>
+    </div>
+
+    <div class="story-item reverse">
+      <div class="story-illust">
+        <span class="story-icon">📚</span>
+        <span class="story-num">04</span>
+      </div>
+      <div class="story-text">
+        <p class="story-title">네번째 창업은 출판사이자 나의 스몰브랜드인 두더지책방입니다.</p>
+        <p class="story-desc">주스테이블을 폐업하지 않고 출판업으로 신고하고 이름을 두더지책방으로 바꾸었어요. 영어는 mole&page. 자, 이제 시작합니다!</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>© 2025 Kim Sunkyung · <a href="index.html">포트폴리오로 돌아가기</a></footer>
+
+</body>
+</html>
